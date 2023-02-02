@@ -28,3 +28,12 @@ productsDiv.addEventListener("click", (event) => {
     calculateProductPrice(event.target);
     calculateCartPrice();
 });
+
+const calculateProductPrice = (btn) => {
+    const productInfoDiv = btn.parentElement.parentElement;
+    //   console.log(productInfoDiv)
+    const price = Number(productInfoDiv.querySelector(".product-price strong").innerText);
+    const quantity = Number(productInfoDiv.querySelector(".quantity").innerText);
+    const productTotalDiv = productInfoDiv.querySelector(".price");
+    productTotalDiv.innerText = (price * quantity).toFixed(2);
+}
